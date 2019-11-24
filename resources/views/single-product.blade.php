@@ -5,7 +5,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Shop</span></p>
-                <h1 class="mb-0 bread">Shop</h1>
+                <h1 class="mb-0 bread">Detail</h1>
             </div>
         </div>
     </div>
@@ -69,11 +69,11 @@
                     </div>
                     <div class="w-100"></div>
                     <div class="col-md-12">
-                        <p style="color: #000;">80 piece available</p>
+                        <p style="color: #000;">Type: {{$type->name_type}}</p>
                     </div>
                 </div>
-                <p><a href="cart.html" class="btn btn-black py-3 px-5 mr-2">Add to Cart</a><a href="cart.html"
-                        class="btn btn-primary py-3 px-5">Buy now</a></p>
+                <p><a href="addToCart/{{$item->ID_product}}" class="btn btn-black py-3 px-5 mr-2">Add to Cart</a><a
+                        href="buyNow/{{$item->ID_product}}" class="btn btn-primary py-3 px-5">Buy now</a></p>
             </div>
         </div>
 

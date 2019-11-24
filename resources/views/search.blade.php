@@ -6,7 +6,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Shop</span></p>
-                <h1 class="mb-0 bread">Shop</h1>
+                <h1 class="mb-0 bread">Keyword: {{$_GET['key']}}</h1>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
                             <div class="text py-3 pb-4 px-3">
                                 <div class="d-flex">
                                     <div class="cat">
-                                        <span>Lifestyle</span>
+                                        <span>Type: {{$item->name_type}}</span>
                                     </div>
                                     <div class="rating">
                                         <p class="text-right mb-0">
@@ -44,10 +44,11 @@
                                     <p class="price"><span>${{number_format($item->unit_price,0,'.',',')}}</span></p>
                                 </div>
                                 <p class="bottom-area d-flex px-3">
-                                    <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i
+                                    <a href="addToCart/{{$item->ID_product}}"
+                                        class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i
                                                 class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="#" class="buy-now text-center py-2">Buy now<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
+                                    <a href="buyNow/{{$item->ID_product}}" class="buy-now text-center py-2">Buy
+                                        now<span><i class="ion-ios-cart ml-1"></i></span></a>
                                 </p>
                             </div>
                         </div>
@@ -62,8 +63,6 @@
                                 {{-- start:: Phân Trang (Search) --}}
                                 @if(@isset($_GET['key']))
                                 <?php 
-                                    $per_page = 9; // Số Sản Phẩm
-                                    $total_page = ceil($count/$per_page);  // Tổng Pages
                                     if(isset($_GET['page'])) // Bắt Sự Kiện Trang
                                         $page_now = $_GET['page'];
                                     else

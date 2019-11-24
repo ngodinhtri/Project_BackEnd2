@@ -15,7 +15,7 @@
 Route::get('detail/{id}',[
     'as'=>'thong-tin-san-pham',
     'uses'=>'BlogController@detail'
-])->middle('CheckError');
+]);
 
 Route::get('shop',    [
     'as'=>'cua-hang',
@@ -32,9 +32,14 @@ Route::get('type/{type_page}',[
     'uses'=>'BlogController@phanloai'
 ]);
 
-Route::get('404',function(){
-return view('404');
-});
+
+Route::get('addToCart/{id}','BlogController@addToCart');
+
+Route::get('cart','BlogController@cart');
+
+Route::get('buyNow/{id}','BlogController@buyNow');
+
+Route::get('delItem/{id}','BlogController@deleteItem');
 
 //bẫy 404 trang về index
 Route::get('/{s?}',[

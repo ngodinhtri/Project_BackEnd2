@@ -28,7 +28,7 @@
                             <div class="text py-3 pb-4 px-3">
                                 <div class="d-flex">
                                     <div class="cat">
-                                        <span>Lifestyle</span>
+                                        <span>Type: {{$item->name_type}}</span>
                                     </div>
                                     <div class="rating">
                                         <p class="text-right mb-0">
@@ -45,10 +45,11 @@
                                     <p class="price"><span>${{number_format($item->unit_price,0,'.',',')}}</span></p>
                                 </div>
                                 <p class="bottom-area d-flex px-3">
-                                    <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i
+                                    <a href="addToCart/{{$item->ID_product}}"
+                                        class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i
                                                 class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="#" class="buy-now text-center py-2">Buy now<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
+                                    <a href="buyNow/{{$item->ID_product}}" class="buy-now text-center py-2">Buy
+                                        now<span><i class="ion-ios-cart ml-1"></i></span></a>
                                 </p>
                             </div>
                         </div>
@@ -57,13 +58,11 @@
                     {{-- End:: In Sản Phẩm (shop) --}}
                 </div>
                 {{-- Start:: Phân Trang (shop) --}}
-                <div class="row mt-5">
+                <div class=" row mt-5">
                     <div class="col text-center">
                         <div class="block-27">
                             <ul>
                                 <?php 
-                                    $per_page = 9; // Số Sản Phẩm
-                                    $total_page = ceil($count/$per_page);  // Tổng Pages
                                     if(isset($_GET['page']))// Bắt Sự Kiện Trang
                                         $page_now = $_GET['page'];
                                     else
@@ -131,7 +130,8 @@
                                         <h4 class="panel-title">
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
                                                 href="#collapseTwo" aria-expanded="false"
-                                                aria-controls="collapseTwo">Women's Shoes
+                                                aria-controls="collapseTwo">Women's
+                                                Shoes
                                             </a>
                                         </h4>
                                     </div>

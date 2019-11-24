@@ -90,14 +90,19 @@
 					<li class="nav-item"><a href="{{url('blog')}}" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>
 					<li class="nav-item cta cta-colored"><a href="{{url('cart')}}" class="nav-link"><span
-								class="icon-shopping_cart"></span>[0]</a></li>
+								class="icon-shopping_cart"></span>[
+							@if (Session::has('cart'))
+							{{$totalQuantity}}
+							@else
+							0
+							@endif]</a></li>
 
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- END nav -->
-
+	{{-- {{dd(Session('cart'))}} --}}
 	@yield('content')
 	<!--footer-->
 
@@ -114,31 +119,13 @@
 		</div>
 		<div class="container-fluid px-0">
 			<div class="row">
+				@foreach ($manu as $item)
 				<div class="col-md-4 col-lg-2 ftco-animate">
 					<a href="#" class="gallery img d-flex align-items-center"
-						style="background-image: url(images/logo/adidas.jpg);">
+						style="background-image: url(images/logo/{{$item->img_manu}});">
 					</a>
 				</div>
-				<div class="col-md-4 col-lg-2 ftco-animate">
-					<a href="#" class="gallery img d-flex align-items-center"
-						style="background-image: url(images/logo/nike.jpg);">
-					</a>
-				</div>
-				<div class="col-md-4 col-lg-2 ftco-animate">
-					<a href="#" class="gallery img d-flex align-items-center"
-						style="background-image: url(images/logo/vans.jpg);">
-					</a>
-				</div>
-				<div class="col-md-4 col-lg-2 ftco-animate">
-					<a href="#" class="gallery img d-flex align-items-center"
-						style="background-image: url(images/logo/converse.jpg);">
-					</a>
-				</div>
-				<div class="col-md-4 col-lg-2 ftco-animate">
-					<a href="#" class="gallery img d-flex align-items-center"
-						style="background-image: url(images/logo/balenciaga.jpg);">
-					</a>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>
